@@ -210,3 +210,10 @@ nav a:hover, nav a.active {
     color: var(--accent-color);
     font-weight: bold;
 }
+
+/* Add this new section */
+.logo-icon {
+    height: 30px; /* Adjust size as needed */
+    vertical-align: middle;
+    margin-right: 8px;
+}
