@@ -81,7 +81,7 @@ nav a:hover, nav a.active {
     margin-bottom: 15px;
 }
 
-/* --- Specific Content Styling --- */
+/* --- News Styling --- */
 .news-item {
     padding: 10px 0;
     border-bottom: 1px dotted var(--border-color);
@@ -96,19 +96,57 @@ nav a:hover, nav a.active {
     margin: 0 0 5px 0;
 }
 
+/* --- Team Logo Placeholder Styling (NEW) --- */
+.team-logo {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #555555;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 5px;
+    flex-shrink: 0;
+}
+
+/* --- Match Item Styling (UPDATED) --- */
+.match-list {
+    display: flex;
+    flex-direction: column;
+}
+
 .match-item {
-    background-color: #333333; /* Slightly different background for match rows */
+    background-color: #333333; 
     padding: 10px;
     margin-bottom: 8px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     border-radius: 3px;
     font-weight: bold;
 }
 
+.match-item .vs {
+    color: #999;
+    margin: 0 10px;
+    flex-grow: 1; /* Allows the space to expand */
+    text-align: center;
+}
+
 .match-item .team {
     color: #fff;
+    margin: 0 5px;
+}
+
+.match-item .score-set {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0 10px;
 }
 
 .match-item .score {
@@ -119,18 +157,36 @@ nav a:hover, nav a.active {
 }
 
 .finished-match {
-    opacity: 0.7; /* Dim finished matches slightly */
+    opacity: 0.7; 
 }
 
-/* Rankings List */
+/* --- Rankings Styling (UPDATED) --- */
 .rankings ol {
     list-style: none;
     padding: 0;
 }
 
 .rankings li {
-    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
     border-bottom: 1px dotted var(--border-color);
+}
+
+.rankings li:last-child {
+    border-bottom: none;
+}
+
+.rank-number {
+    width: 25px; 
+    text-align: center;
+}
+
+.rank-logo {
+    width: 18px; 
+    height: 18px;
+    font-size: 10px;
 }
 
 /* General Accent Class */
