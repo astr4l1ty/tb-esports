@@ -1,28 +1,29 @@
 /* --- Global Reset & Variables --- */
 body {
-    font-family: Arial, sans-serif; /* Clean, standard font */
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a; /* Very dark background */
-    color: #e0e0e0; /* Light gray text color */
+    background-color: #1a1a1a; 
+    color: #e0e0e0; 
 }
 
-/* Define key colors for easy changes */
 :root {
     --dark-bg: #1a1a1a;
-    --content-bg: #282828; /* Slightly lighter block background */
-    --accent-color: #00bcd4; /* Cyan/Blue for highlights (like HLTV) */
-    --border-color: #383838; /* Subtle border color */
+    --content-bg: #282828; 
+    --accent-color: #00bcd4; 
+    --border-color: #383838; 
 }
 
-/* --- Header & Navigation --- */
+/* --- Header & Navigation (GREEN BOX FIX: Centering Nav) --- */
 header {
-    background-color: #101010; /* Near-black header */
+    background-color: #101010;
     padding: 15px 5%;
     display: flex;
-    justify-content: space-between;
+    /* Changed from space-between to center the navigation */
+    justify-content: center; 
     align-items: center;
-    border-bottom: 3px solid var(--accent-color); /* The signature accent line */
+    border-bottom: 3px solid var(--accent-color);
+    position: relative; /* Needed for absolute logo positioning */
 }
 
 .logo {
@@ -30,12 +31,15 @@ header {
     font-size: 24px;
     font-weight: bold;
     letter-spacing: 1px;
+    /* Position the logo absolutely to keep it on the left while centering nav */
+    position: absolute;
+    left: 5%;
 }
 
 nav a {
     color: #e0e0e0;
     text-decoration: none;
-    margin-left: 20px;
+    margin: 0 15px; /* Adjust spacing between links */
     padding: 5px 0;
     transition: color 0.2s;
 }
@@ -45,26 +49,26 @@ nav a:hover, nav a.active {
     border-bottom: 2px solid var(--accent-color);
 }
 
-/* --- Main Layout: Container --- */
+/* --- Main Layout: Container (REVERSED COLUMNS) --- */
 .container {
-    display: flex; /* Enables the two-column layout */
+    display: flex; 
     max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
 }
 
-/* --- Columns --- */
-.main-content {
-    flex: 3; /* Takes up more space */
-    margin-right: 20px;
-}
-
+/* --- Columns (REVERSED MARGINS) --- */
 .sidebar {
-    flex: 1; /* Takes up less space */
+    flex: 1; /* Takes up less space (Left Column) */
     min-width: 250px;
 }
 
-/* --- Content Blocks (Core HLTV Look) --- */
+.main-content {
+    flex: 3; /* Takes up more space (Right Column) */
+    margin-left: 20px; /* Space between sidebar and main content */
+}
+
+/* --- Content Blocks --- */
 .content-block {
     background-color: var(--content-bg);
     padding: 15px;
@@ -91,12 +95,7 @@ nav a:hover, nav a.active {
     border-bottom: none;
 }
 
-.news-item h4 {
-    color: #fff;
-    margin: 0 0 5px 0;
-}
-
-/* --- Team Logo Placeholder Styling (NEW) --- */
+/* --- Team Logo Placeholder Styling --- */
 .team-logo {
     display: inline-flex;
     justify-content: center;
@@ -113,12 +112,14 @@ nav a:hover, nav a.active {
     flex-shrink: 0;
 }
 
-/* --- Match Item Styling (UPDATED) --- */
-.match-list {
-    display: flex;
-    flex-direction: column;
+/* RED BOX FIX: Empty Logo Styling */
+.team-logo.empty-logo {
+    background-color: transparent; /* Remove background */
+    border: 1px dashed #555555; /* Add a dashed border */
+    color: transparent; /* Hide any content */
 }
 
+/* --- Match Item Styling --- */
 .match-item {
     background-color: #333333; 
     padding: 10px;
@@ -133,7 +134,7 @@ nav a:hover, nav a.active {
 .match-item .vs {
     color: #999;
     margin: 0 10px;
-    flex-grow: 1; /* Allows the space to expand */
+    flex-grow: 1;
     text-align: center;
 }
 
@@ -157,10 +158,17 @@ nav a:hover, nav a.active {
 }
 
 .finished-match {
-    opacity: 0.7; 
+    /* Kept finished match style, as Previous Matches are always finished */
+    opacity: 1; 
 }
 
-/* --- Rankings Styling (UPDATED) --- */
+/* --- Rankings Styling (PURPLE BOX FIX: Positioning and naming) --- */
+.rankings h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .rankings ol {
     list-style: none;
     padding: 0;
@@ -169,8 +177,8 @@ nav a:hover, nav a.active {
 .rankings li {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 0;
+    /* Adjust padding to make rows look better */
+    padding: 10px 0; 
     border-bottom: 1px dotted var(--border-color);
 }
 
@@ -181,12 +189,20 @@ nav a:hover, nav a.active {
 .rank-number {
     width: 25px; 
     text-align: center;
+    font-size: 1.1em; /* Make the number a little bigger */
+    font-weight: bold;
+    margin-right: 10px;
 }
 
 .rank-logo {
-    width: 18px; 
-    height: 18px;
+    width: 20px; /* Slightly larger logo for rankings */
+    height: 20px;
     font-size: 10px;
+}
+
+.team-name {
+    margin-left: 8px;
+    font-weight: normal;
 }
 
 /* General Accent Class */
